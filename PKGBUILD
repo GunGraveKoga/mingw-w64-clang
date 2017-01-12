@@ -66,6 +66,7 @@ source=(http://llvm.org/releases/${pkgver}/llvm-${pkgver}.src.tar.xz{,.sig}
         "0109-Set-the-x86-arch-name-to-i686-for-mingw-w64.patch"
         "0110-enable-support-for-float128.patch"
         "0111-fix-clang-with-libstdc.patch"
+        "0112-objc-eh-personality.patch"
         "0201-mingw-w64-__udivdi3-mangle-hack.patch"
         "0202-mingw-fixes-for-compiler-rt.patch"
         "0301-COFF-gnu-driver-support.patch"
@@ -119,6 +120,7 @@ sha256sums=('66c73179da42cee1386371641241f79ded250e117a79f571bbd69e56daa48948'
             '13a95a61e9c1c44c18a69947734e07515332a549446394f48b86b52511d221de'
             '7abd9894abe9d28da975fadbad27478c308ed1455a5130091ad0ffd0351bfa52'
             '72cae8e17236d6ad625641a6661ce179b8446bd5119f32a352e5b3b9c1a3f397'
+            '19d6b59c47f62abcd7fcc2f510e305a1fcdfb4e2016b71245db8e312c038e8b2'
             'fb1ef06b26e88d37d52c3e0b3b261089e92bb7c08231ec8fa234465fdbdab308'
             'c19a3e49f692eba9143bb67c39a9e6df33fa604d85b0b7834d99cdd58a28d23a'
             '852d55907b469739fca96b043e41c596824ad9d933268ce65a82100b975e91fb'
@@ -174,6 +176,7 @@ prepare() {
   patch -p1 -i "${srcdir}/0109-Set-the-x86-arch-name-to-i686-for-mingw-w64.patch"
   patch -p1 -R -i "${srcdir}/0110-enable-support-for-float128.patch"
   patch -p1 -i "${srcdir}/0111-fix-clang-with-libstdc.patch"
+  patch -p1 -i "${srcdir}/0112-objc-eh-personality.patch"
 
   cd "${srcdir}/compiler-rt-${pkgver}.src"
   # patch -p1 -i "${srcdir}/0201-mingw-w64-__udivdi3-mangle-hack.patch"
